@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "name": "Home",
+        "img": "https://i.ibb.co/Ytypdy3/3-0-removebg-preview.png"
+    },
+    {
+        "id": 2,
+        "name": "Decoration",
+        "img": "https://i.ibb.co/JCxdJjM/27-1-600x709-removebg-preview-2.png"
+    },
+    {
+        "id": 3,
+        "name": "Office",
+        "img": "https://i.ibb.co/rQDhW3v/6-0-removebg-preview.png"
+    }
+]

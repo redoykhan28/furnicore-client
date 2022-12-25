@@ -1,7 +1,7 @@
 import React from 'react';
-import img1 from '../../../../Assets/banner/david-van-dijk-3LTht2nxd34-unsplash.jpg'
-import img2 from '../../../../Assets/banner/liana-mikah-HstwCJX0jT4-unsplash.jpg'
-import img3 from '../../../../Assets/banner/pierre-chatel-innocenti-pxoZSTdAzeU-unsplash.jpg'
+import img1 from '../../../Assets/banner/david-van-dijk-3LTht2nxd34-unsplash.jpg'
+import img2 from '../../../Assets/banner/liana-mikah-HstwCJX0jT4-unsplash.jpg'
+
 
 const Banner = () => {
     return (
