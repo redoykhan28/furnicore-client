@@ -10,7 +10,7 @@ const CatCard = ({ category }) => {
 
     return (
         <div>
-            <div className="card card-compact w-96 bg-base-100 shadow-sm">
+            <div className="card card-compact mx-auto w-96 bg-base-100 shadow-sm">
                 <div className='wrapper'>
                     <img className='imgi' src={img} alt="Shoes" />
                     <Link to={`/products/${name}`}>

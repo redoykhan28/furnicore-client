@@ -26,8 +26,9 @@ const Nav = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link className="btn bg-black text-white rounded-none lg:w-32 hover:bg-slate-200 hover:text-black">Login</Link>
+                <Link className="btn bg-black text-white rounded-none lg:w-32 hover:bg-slate-200 hover:text-black hover:bg-transparent">Login</Link>
             </div>
+
         </div>
     );
 };
