@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../Assets/logo-removebg-preview.png'
 
 const Nav = () => {
@@ -13,16 +13,16 @@ const Nav = () => {
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to={'/home'}>Home</Link></li>
                         <li><Link to={'/categories'}>Categories</Link></li>
-                        <li><Link to={'/blogs'}>About</Link></li>
+                        <li><Link to={'/blogs'}>Blogs</Link></li>
                     </ul>
                 </div>
                 <Link to={'/home'} className="btn btn-ghost normal-case text-xl"><img className='w-40' src={logo} alt="Logo" /></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal font-semibold px-1">
-                    <li><Link to={'/home'}>Home</Link></li>
-                    <li><Link to={'/categories'}>Categories</Link></li>
-                    <li><Link to={'/blogs'}>About</Link></li>
+                <ul className="menu menu-horizontal  px-1">
+                    <li><NavLink className={({ isActive }) => isActive ? 'bg-transparent font-bold' : 'font-semibold'} to={'/home'}>Home</NavLink></li>
+                    <li><NavLink className={({ isActive }) => isActive ? 'bg-transparent font-bold' : 'font-semibold'} to={'/categories'}>Categories</NavLink></li>
+                    <li><NavLink className={({ isActive }) => isActive ? 'bg-transparent font-bold' : 'font-semibold'} to={'/blogs'}>Blogs</NavLink></li>
                 </ul>
             </div>
             <div className="navbar-end">

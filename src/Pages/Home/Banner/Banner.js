@@ -18,9 +18,9 @@ const Banner = () => {
                     </h1>
                     <p className='w-1/3 hidden lg:block text-white text-start my-8'>There are many variations and colors are available with <strong>60%</strong> off sell.</p>
                     <div className=' hidden lg:flex'>
-                        <button className="btn btn-active bg-black text-white border-0 rounded-none">Start Shopping</button>
+                        <button className="btn btn-active bg-black text-white border-0 rounded-none hover:text-black hover:bg-transparent hover:border">Start Shopping</button>
 
-                        <button className="btn btn-outline border-white text-white mx-4 rounded-none">Leatest Projects</button>
+                        <button className="btn btn-outline border-white text-white mx-4 rounded-none">Leatest Products</button>
 
                     </div>
                 </div>
