@@ -10,7 +10,7 @@ const Home = () => {
                 <Banner></Banner>
             </section>
 
-            <section className='-mt-32'>
+            <section className='lg:-mt-32'>
                 <Categories></Categories>
             </section>
         </div>

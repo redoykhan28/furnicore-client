@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "product_name": "Artemis Lounge Chair",
+        "image": "https://wpbingosite.com/wordpress/furnive/wp-content/uploads/2019/04/1.0.jpg",
+        "description": "The chaise longue is seen as a luxury item for the modern home. They are often used to complement a home's décor such as living or reading rooms, or as a stylish boudoir chair for bedroom seating. Get our Artemis Lounge Chair and get upto 40% discount",
+        "price": 8590,
+        "ratings": 4.8,
+        "category_name": "Home"
+    },
+    {
+        "id": 2,
+        "product_name": "Coby Coffee Table",
+        "image": "https://wpbingosite.com/wordpress/furnive/wp-content/uploads/2020/12/5.3.jpg",
+        "description": "The foremost role of a coffee table for your living room is to serve a myriad of functions, from storage to displaying showpieces. Buy our Coby Coffee Table and get upto 50% discount",
+        "price": 9490,
+        "ratings": 4.9,
+        "category_name": "Home"
+    },
+    {
+        "id": 3,
+        "product_name": "Luxury Bed",
+        "image": "https://elivingfurniture.com.au/wp-content/uploads/2020/07/Cali-Wooden-Bed-Frame-with-Headboard-Grey.jpg",
+        "description": "The foremost role of a coffee table for your living room is to serve a myriad of functions, from storage to displaying showpieces. Buy our Coby Coffee Table and get upto 50% discount",
+        "price": 20590,
+        "ratings": 4.9,
+        "category_name": "Home"
+    },
+    {
+        "id": 4,
+        "product_name": "Caravaggio Read Wall Light",
+        "image": "https://wpbingosite.com/wordpress/furnive/wp-content/uploads/2020/12/add-19.jpg",
+        "description": "You can set anywhere in your home to decorate. Buy our Caravaggio Read Wall Light and get upto 30% discount",
+        "price": 6590,
+        "ratings": 4.8,
+        "category_name": "Decoration"
+    },
+    {
+        "id": 5,
+        "product_name": "Puffy Stool",
+        "image": "https://wpbingosite.com/wordpress/furnive/wp-content/uploads/2019/04/7.0.jpg",
+        "description": "Decorate your home with puffy stool. Buy our Caravaggio Read Wall Light and get upto 30% discount",
+        "price": 9590,
+        "ratings": 4.9,
+        "category_name": "Decoration"
+    },
+    {
+        "id": 6,
+        "product_name": "Decorative Table Lamp",
+        "image": "https://wpbingosite.com/wordpress/furnive/wp-content/uploads/2019/04/4.0.jpg",
+        "description": "Decorate your home with Table lamp. Buy our Decorative Table Lamp and get upto 20% discount",
+        "price": 4590,
+        "ratings": 4.9,
+        "category_name": "Decoration"
+    },
+    {
+        "id": 7,
+        "product_name": "Gretchen Single Seat Sofa",
+        "image": "https://wpbingosite.com/wordpress/furnive/wp-content/uploads/2019/04/6.0.jpg",
+        "description": "Decorate your office to give a minimalistic look by purchasing Gretchen Single Seat Sofa. Buy our Gretchen Single Seat Sofa and get upto 30% discount",
+        "price": 9990,
+        "ratings": 4.9,
+        "category_name": "Office"
+    },
+    {
+        "id": 8,
+        "product_name": "Gretchen Round Table",
+        "image": "https://wpbingosite.com/wordpress/furnive/wp-content/uploads/2019/04/17.1.jpg",
+        "description": "Decorate your office to give a minimalistic look by purchasing Gretchen round table. Buy our Gretchen round table and get upto 40% discount",
+        "price": 12990,
+        "ratings": 4.7,
+        "category_name": "Office"
+    }
+]

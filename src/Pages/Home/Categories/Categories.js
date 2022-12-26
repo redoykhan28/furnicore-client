@@ -1,17 +1,24 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import Loader from '../../Loader/Loader';
 import CatCard from './CatCard';
 
 const Categories = () => {
 
-    //use query
+    //use query to fetch categories
     const { data: category, isLoading } = useQuery({
 
         queryKey: ['category'],
-        queryFn: () => fetch('categories.json')
+        queryFn: () => fetch('http://localhost:5000/categories')
             .then(res => res.json())
 
     })
+
+    //use loader before render
+    if (isLoading) {
+
+        return <Loader></Loader>
+    }
 
     return (
 
