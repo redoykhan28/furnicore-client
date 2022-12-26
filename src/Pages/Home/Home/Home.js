@@ -3,6 +3,7 @@ import Banner from '../Banner/Banner';
 import Categories from '../Categories/Categories';
 import LeatestProduct from '../LeatesProduct/LeatestProduct';
 import Service from '../Service/Service';
+import UpcomingCollection from '../UpcomingCollection/UpcomingCollection';
 
 
 const Home = () => {
@@ -19,6 +20,10 @@ const Home = () => {
 
             <section className='mt-20'>
                 <LeatestProduct></LeatestProduct>
+            </section>
+
+            <section className='my-20'>
+                <UpcomingCollection></UpcomingCollection>
             </section>
 
             <section className='my-20'>
