@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaCircleNotch, FaDyalog } from 'react-icons/fa';
+import { FaDyalog } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import img from '../../../Assets/upcoming collection/banner-1.jpg'
 const UpcomingCollection = () => {

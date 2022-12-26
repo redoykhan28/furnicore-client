@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebook, FaHeart, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaHeart, FaLinkedin, FaStar, FaTwitter } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 import icon1 from '../../Assets/product details/logo1-removebg-preview.png'
 import icon2 from '../../Assets/product details/logo2-removebg-preview.png'
@@ -25,7 +25,14 @@ const ProductDetails = () => {
                             <img src={image} className="rounded-none border border-gray-300" alt="product" />
                         </div>
                         <div className='lg:w-1/2 text-start'>
-                            <h4 className="text-2xl font-bold">{product_name}</h4>
+                            <div className='flex justify-between items-center'>
+                                <h4 className="text-2xl font-bold">{product_name}</h4>
+                                <div className='flex items-center'>
+                                    <h4 className='mx-1 font-semibold'>Ratings:</h4>
+                                    <FaStar className='text-yellow-500' />
+                                    <span>{ratings}</span>
+                                </div>
+                            </div>
                             <h4 className="text-xl font-semi-bold">Price: {price}TK</h4>
                             <p className="py-6">{description}</p>
                             <div className='flex items-center justify-between'>
