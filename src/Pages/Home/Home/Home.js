@@ -2,11 +2,13 @@ import React from 'react';
 import Banner from '../Banner/Banner';
 import Categories from '../Categories/Categories';
 import LeatestProduct from '../LeatesProduct/LeatestProduct';
+import Service from '../Service/Service';
 
 
 const Home = () => {
     return (
         <div>
+
             <section>
                 <Banner></Banner>
             </section>
@@ -18,6 +20,11 @@ const Home = () => {
             <section className='mt-20'>
                 <LeatestProduct></LeatestProduct>
             </section>
+
+            <section className='my-20'>
+                <Service></Service>
+            </section>
+
         </div>
     );
 };
