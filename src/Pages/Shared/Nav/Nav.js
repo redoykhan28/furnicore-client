@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../Assets/logo-removebg-preview.png'
+import { authProvider } from '../../../Context/AuthContext';
 
 const Nav = () => {
+
+    //use context
+    const { user, logout } = useContext(authProvider)
+
+    //handle logout
+    const handleLogout = () => {
+
+        //using logout
+        logout()
+            .then(res => {
+
+            })
+    }
+
     return (
         <div className="navbar lg:w-11/12 mx-auto p-4 bg-base-100">
             <div className="navbar-start">
@@ -26,7 +41,12 @@ const Nav = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link className="btn bg-black text-white rounded-none lg:w-32 hover:bg-slate-200 hover:text-black hover:bg-transparent">Login</Link>
+                {
+                    user ?
+                        <Link onClick={handleLogout} className="btn btn-outline">Logout</Link>
+                        :
+                        <Link to={'/login'} className="btn bg-black text-white rounded-none lg:w-32 hover:bg-slate-200 hover:text-black hover:bg-transparent">Login</Link>
+                }
             </div>
 
         </div>
