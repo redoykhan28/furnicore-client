@@ -15,7 +15,7 @@ const Orders = () => {
     //deleting product
     const [deleteOrder, setDeleteOrder] = useState(null)
 
-    //use query to fetch categories
+    //use query to fetch orders
     const { data: orders, isLoading, refetch } = useQuery({
 
         queryKey: ['orders'],

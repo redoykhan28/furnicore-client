@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaCartArrowDown, FaHome, FaPlusCircle, FaShoppingBasket, FaSignOutAlt } from 'react-icons/fa';
+import { FaCartArrowDown, FaHome, FaPlusCircle, FaShoppingBasket, FaSignOutAlt, FaUserCircle } from 'react-icons/fa';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import Nav from '../Pages/Shared/Nav/Nav'
 
@@ -34,6 +34,8 @@ const DashLayout = () => {
 
 
                         <li><NavLink className={({ isActive }) => isActive ? 'bg-gradient-to-r from-secondary to-accent  text-white rounded-sm mt-2 rounded-r-full shadow-xl' : 'text-black  text-decoration-none font-bold'} to={'/orders'}><FaCartArrowDown /> Orders</NavLink></li>
+
+                        <li><NavLink className={({ isActive }) => isActive ? 'bg-gradient-to-r from-secondary to-accent  text-white rounded-sm mt-2 rounded-r-full shadow-xl' : 'text-black  text-decoration-none font-bold'} to={'/customers'}><FaUserCircle /> My Customers</NavLink></li>
 
                         <li><Link className='text-black font-semibold mt-20' to={'/home'}>Exit from Dashboard <FaSignOutAlt /></Link></li>
                     </ul>

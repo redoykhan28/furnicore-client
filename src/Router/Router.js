@@ -3,6 +3,8 @@ import DashLayout from "../Layouts/DashLayout";
 import Main from "../Layouts/Main";
 import Blogs from "../Pages/Blog/Blogs";
 import Categories from "../Pages/Categories/Categories";
+import Customer from "../Pages/Dashboard/Customer/Customer";
+import CustomerDetails from "../Pages/Dashboard/Customer/CustomerDetails";
 import DashHome from "../Pages/Dashboard/DashHome/DashHome";
 import AddProduct from "../Pages/Dashboard/DashProducts/AddProduct";
 import AdminProductDetails from "../Pages/Dashboard/DashProducts/AdminProductDetails";
@@ -98,6 +100,16 @@ export const router = createBrowserRouter([
             {
                 path: '/orderDetails/:id',
                 element: <OrderDetails></OrderDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/orderDetails/${params.id}`)
+            },
+
+            {
+                path: '/customers',
+                element: <Customer></Customer>
+            },
+            {
+                path: '/customerDetails/:id',
+                element: <CustomerDetails></CustomerDetails>,
                 loader: ({ params }) => fetch(`http://localhost:5000/orderDetails/${params.id}`)
             },
         ]

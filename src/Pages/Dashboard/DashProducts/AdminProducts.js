@@ -34,7 +34,7 @@ const AdminProducts = () => {
 
     return (
         <div>
-            <h1 className='text-center text-2xl mt-3 font-semibold'>My Products List</h1>
+            <h1 className='text-center text-2xl mt-3 font-semibold'>Products List</h1>
             <p className='mb-10 text-gray-500'>Total Products: {adminProducts.length}</p>
 
             <div>
