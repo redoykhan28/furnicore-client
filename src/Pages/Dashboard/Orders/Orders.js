@@ -10,7 +10,7 @@ import OrderModal from '../Orders/OrderModal';
 const Orders = () => {
 
     //use context
-    const { user } = useContext(authProvider);
+    const { user, logout } = useContext(authProvider);
 
     //deleting product
     const [deleteOrder, setDeleteOrder] = useState(null)
@@ -19,8 +19,20 @@ const Orders = () => {
     const { data: orders, isLoading, refetch } = useQuery({
 
         queryKey: ['orders'],
-        queryFn: () => fetch(`http://localhost:5000/orderlist?email=${user?.email}`)
-            .then(res => res.json())
+        queryFn: () => fetch(`http://localhost:5000/orderlist?email=${user?.email}`, {
+            headers: {
+                authorization: `bearer ${localStorage.getItem('token')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+
+                    return logout()
+
+
+                }
+                return res.json()
+            })
 
     })
 

@@ -2,11 +2,14 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../Assets/logo-removebg-preview.png'
 import { authProvider } from '../../../Context/AuthContext';
+import useAdmin from '../../../Hooks/AdminHooks';
 
 const Nav = () => {
 
     //use context
     const { user, logout } = useContext(authProvider)
+
+    const [isAdmin] = useAdmin(user?.email)
 
     //handle logout
     const handleLogout = () => {
@@ -30,7 +33,7 @@ const Nav = () => {
                         <li><Link to={'/categories'}>Categories</Link></li>
                         <li><Link to={'/blogs'}>Blogs</Link></li>
                         {
-                            user &&
+                            isAdmin &&
                             <li><Link to={'/dashHome'}>Dashboard</Link></li>
 
 
@@ -45,7 +48,7 @@ const Nav = () => {
                     <li><NavLink className={({ isActive }) => isActive ? 'bg-transparent font-bold' : 'font-semibold'} to={'/categories'}>Categories</NavLink></li>
                     <li><NavLink className={({ isActive }) => isActive ? 'bg-transparent font-bold' : 'font-semibold'} to={'/blogs'}>Blogs</NavLink></li>
                     {
-                        user &&
+                        isAdmin &&
                         <li><NavLink className={({ isActive }) => isActive ? 'bg-transparent font-bold' : 'font-semibold'} to={'/dashHome'}>Dashboard</NavLink></li>
 
                     }

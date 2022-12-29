@@ -1,22 +1,37 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { toast, Toaster } from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
+import { authProvider } from '../../../Context/AuthContext';
 
 const OrderDetails = () => {
     const order = useLoaderData()
     console.log(order)
     const { image, customer_email, customer_name, order_date, payment, phone, product_name, total } = order
 
+    //use context
+    const { logout } = useContext(authProvider);
+
     //confirm order
     const confirmOrder = (order) => {
 
         fetch(`http://localhost:5000/orderUpdate/${order._id}`, {
 
-            method: "PUT"
+            method: "PUT",
+            headers: {
+                authorization: `bearer ${localStorage.getItem('token')}`
+            }
 
 
         })
-            .then(res => res.json())
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+
+                    return logout()
+
+
+                }
+                return res.json()
+            })
             .then(data => {
                 console.log(data)
                 toast.success("order Confirmed")

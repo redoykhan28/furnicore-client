@@ -10,7 +10,7 @@ import ProductModal from './ProductModal';
 const AdminProducts = () => {
 
     //use context
-    const { user } = useContext(authProvider);
+    const { user, logout } = useContext(authProvider);
 
     //deleting product
     const [deleteProduct, setDeleteProduct] = useState(null)
@@ -19,8 +19,20 @@ const AdminProducts = () => {
     const { data: adminProducts, isLoading, refetch } = useQuery({
 
         queryKey: ['adminProducts'],
-        queryFn: () => fetch(`http://localhost:5000/adminProduct?email=${user.email}`)
-            .then(res => res.json())
+        queryFn: () => fetch(`http://localhost:5000/adminProduct?email=${user.email}`, {
+            headers: {
+                authorization: `bearer ${localStorage.getItem('token')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+
+                    return logout()
+
+
+                }
+                return res.json()
+            })
 
     })
 

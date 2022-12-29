@@ -18,6 +18,7 @@ import Checkout from "../Pages/Products/Checkout";
 import ProductDetails from "../Pages/Products/ProductDetails";
 import Products from "../Pages/Products/Products";
 import Register from "../Pages/Register/Register";
+import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute"
 
 export const router = createBrowserRouter([
@@ -73,44 +74,59 @@ export const router = createBrowserRouter([
 
     {
         path: '/',
-        element: <PrivateRoute><DashLayout></DashLayout></PrivateRoute>,
+        element: <AdminRoute><DashLayout></DashLayout></AdminRoute>,
         children: [
             {
                 path: '/dashHome',
-                element: <DashHome></DashHome>
+                element: <AdminRoute><DashHome></DashHome></AdminRoute>
             },
             {
                 path: '/adminProducts',
-                element: <AdminProducts></AdminProducts>
+                element: <AdminRoute><AdminProducts></AdminProducts></AdminRoute>
             },
             {
                 path: '/addProduct',
-                element: <AddProduct></AddProduct>
+                element: <AdminRoute><AddProduct></AddProduct></AdminRoute>
             },
             {
                 path: '/adminProductDetails/:id',
-                element: <AdminProductDetails></AdminProductDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/productDetails/${params.id}`)
+                element: <AdminRoute> <AdminProductDetails></AdminProductDetails></AdminRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/productDetails/${params.id}`, {
+
+                    headers: {
+                        authorization: `bearer ${localStorage.getItem('token')}`
+
+                    }
+
+                })
             },
             {
                 path: '/orders',
-                element: <Orders></Orders>
+                element: <AdminRoute><Orders></Orders></AdminRoute>
             },
 
             {
                 path: '/orderDetails/:id',
-                element: <OrderDetails></OrderDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/orderDetails/${params.id}`)
+                element: <AdminRoute><OrderDetails></OrderDetails></AdminRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/orderDetails/${params.id}`, {
+                    headers: {
+                        authorization: `bearer ${localStorage.getItem('token')}`
+                    }
+                })
             },
 
             {
                 path: '/customers',
-                element: <Customer></Customer>
+                element: <AdminRoute><Customer></Customer></AdminRoute>
             },
             {
                 path: '/customerDetails/:id',
-                element: <CustomerDetails></CustomerDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/orderDetails/${params.id}`)
+                element: <AdminRoute><CustomerDetails></CustomerDetails></AdminRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/orderDetails/${params.id}`, {
+                    headers: {
+                        authorization: `bearer ${localStorage.getItem('token')}`
+                    }
+                })
             },
         ]
     }

@@ -7,7 +7,10 @@ const ProductModal = ({ deleteOrder, setDeleteOrder, message, refetch }) => {
     const handleDelete = (order) => {
 
         fetch(`http://localhost:5000/deleteOrder/${order?._id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('token')}`
+            }
 
         })
             .then(res => res.json())

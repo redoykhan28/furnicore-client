@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { toast, Toaster } from 'react-hot-toast';
+import { authProvider } from '../../../Context/AuthContext';
 
 const ProductModal = ({ deleteProduct, setDeleteProduct, message, refetch }) => {
+
+    //use context
+    const { logout } = useContext(authProvider);
 
     //handle Delete
     const handleDelete = (product) => {
 
         fetch(`http://localhost:5000/deleteProduct/${product?._id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('token')}`
+            }
 
         })
-            .then(res => res.json())
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+
+                    return logout()
+
+
+                }
+                return res.json()
+            })
             .then(data => {
 
                 if (data.deletedCount > 0) {
