@@ -29,6 +29,12 @@ const Nav = () => {
                         <li><Link to={'/home'}>Home</Link></li>
                         <li><Link to={'/categories'}>Categories</Link></li>
                         <li><Link to={'/blogs'}>Blogs</Link></li>
+                        {
+                            user &&
+                            <li><Link to={'/dashHome'}>Dashboard</Link></li>
+
+
+                        }
                     </ul>
                 </div>
                 <Link to={'/home'} className="btn btn-ghost normal-case text-xl"><img className='w-40' src={logo} alt="Logo" /></Link>
@@ -38,6 +44,11 @@ const Nav = () => {
                     <li><NavLink className={({ isActive }) => isActive ? 'bg-transparent font-bold' : 'font-semibold'} to={'/home'}>Home</NavLink></li>
                     <li><NavLink className={({ isActive }) => isActive ? 'bg-transparent font-bold' : 'font-semibold'} to={'/categories'}>Categories</NavLink></li>
                     <li><NavLink className={({ isActive }) => isActive ? 'bg-transparent font-bold' : 'font-semibold'} to={'/blogs'}>Blogs</NavLink></li>
+                    {
+                        user &&
+                        <li><NavLink className={({ isActive }) => isActive ? 'bg-transparent font-bold' : 'font-semibold'} to={'/dashHome'}>Dashboard</NavLink></li>
+
+                    }
                 </ul>
             </div>
             <div className="navbar-end">

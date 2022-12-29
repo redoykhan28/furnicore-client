@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { authProvider } from '../../Context/AuthContext';
 import toast, { Toaster } from 'react-hot-toast';
+import { getToken } from '../../Token/Token';
 
 
 const Register = () => {
@@ -65,7 +66,7 @@ const Register = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                // getToken(email)
+                getToken(email)
             })
 
     }

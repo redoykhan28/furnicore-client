@@ -1,9 +1,10 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { FaGoogle } from 'react-icons/fa';
+import { FaGoogle, FaPhoneAlt } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { authProvider } from '../../Context/AuthContext';
+import { getToken } from '../../Token/Token';
 
 const Login = () => {
 
@@ -32,7 +33,7 @@ const Login = () => {
             .then(res => {
                 const user = res.user;
                 console.log(user);
-                // getToken(data.email)
+                getToken(data.email)
                 navigate(from, { replaced: true })
                 setError(null)
             })
@@ -56,7 +57,7 @@ const Login = () => {
                 const user = res.user;
                 console.log(user)
                 postUser(user.displayName, user.email, phone)
-                // getToken(user.email)
+                getToken(user.email)
                 navigate(from, { replaced: true })
 
             })
@@ -123,7 +124,8 @@ const Login = () => {
 
                 <p className='my-2'>Need an account? <Link className='text-blue-600' to={'/register'}>Register</Link></p>
                 <div className="divider divider-horizontal w-11/12 mx-auto">OR</div>
-                <button onClick={handleGoogle} className='btn btn-outline rounded-sm'><FaGoogle className='text-red-600 mr-2' /> Google</button>
+                <Link to={'/phonelogin'} className='btn btn-outline rounded-sm mb-3'>< FaPhoneAlt className='text-red-600 mr-2' /> Login with Phone Number</Link>
+                <button onClick={handleGoogle} className='btn btn-outline rounded-sm'>< FaGoogle className='text-red-600 mr-2' /> Login with Google</button>
             </div>
         </div>
     );
