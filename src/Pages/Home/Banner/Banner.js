@@ -18,15 +18,15 @@ const Banner = () => {
                     </h1>
                     <p className='w-1/3 hidden lg:block text-white text-start my-8'>There are many variations and colors are available with <strong>60%</strong> off sell.</p>
                     <div className=' hidden lg:flex'>
-                        <button className="btn btn-active bg-black text-white border-0 rounded-none hover:text-black hover:bg-transparent hover:border">Start Shopping</button>
+                        <button className="btn btn-active bg-warning text-white border-0 rounded-none hover:text-white hover:bg-warning ">Start Shopping</button>
 
                         <button className="btn btn-outline border-white text-white mx-4 rounded-none">Leatest Products</button>
 
                     </div>
                 </div>
                 <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 lg:right-16 top-1/2 ">
-                    <a href="#slide2" className="btn btn-circle bg-black border-0 mx-8">❮</a>
-                    <a href="#slide2" className="btn bg-black border-0 btn-circle">❯</a>
+                    <a href="#slide2" className="btn btn-circle bg-warning border-0 text-white mx-8 hover:bg-warning">❮</a>
+                    <a href="#slide2" className="btn bg-warning text-white border-0 btn-circle hover:bg-warning">❯</a>
                 </div>
             </div>
             <div id="slide2" className="carousel-item relative w-full">
@@ -41,15 +41,15 @@ const Banner = () => {
                     </h1>
                     <p className=' hidden lg:block w-1/2 mx-auto text-black text-center my-8'>There are many variations and colors are available with <strong>50%</strong> winter sell.</p>
                     <div className=' hidden lg:flex justify-center'>
-                        <button className="btn btn-active bg-black text-white border-0 rounded-none">Start Shopping</button>
+                        <button className="btn btn-active bg-warning text-white border-0 hover:bg-dark rounded-none">Start Shopping</button>
 
                         <button className="btn btn-outline border-white text-white mx-4 rounded-none">Leatest Projects</button>
 
                     </div>
                 </div>
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/3 ">
-                    <a href="#slide1" className="btn btn-circle bg-black border-0">❮</a>
-                    <a href="#slide1" className="btn bg-black border-0 btn-circle">❯</a>
+                    <a href="#slide1" className="btn btn-circle text-white bg-warning hover:bg-warning border-0">❮</a>
+                    <a href="#slide1" className="btn bg-warning hover:bg-warning text-white border-0 btn-circle">❯</a>
                 </div>
             </div>
 

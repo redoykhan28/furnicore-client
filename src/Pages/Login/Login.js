@@ -118,7 +118,7 @@ const Login = () => {
                     </div>
 
                     <p className='text-red-600 my-3 text-start'><small>{error}</small></p>
-                    <input type="submit" className='btn btn-black text-white mt-8 w-full rounded-sm' value={'Login'} />
+                    <input type="submit" className='btn btn-warning text-white mt-8 w-full rounded-sm' value={'Login'} />
 
                 </form>
 
