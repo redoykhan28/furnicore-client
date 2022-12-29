@@ -9,7 +9,7 @@ const ProductDetails = () => {
     const product = useLoaderData()
     // console.log(product)
     //destructure the obeject
-    const { category, product_name, description, image, price, ratings, _id } = product
+    const { category, product_name, details, image, price, ratings, _id, stock } = product
     return (
         <div className='w-11/12 mx-auto'>
             <div className='flex justify-start items-center my-3'>
@@ -34,7 +34,8 @@ const ProductDetails = () => {
                                 </div>
                             </div>
                             <h4 className="text-xl font-semi-bold">Price: {price}TK</h4>
-                            <p className="py-6">{description}</p>
+                            <p className="py-6">{details}</p>
+                            <p className='my-3 text-gray-500'>In stock: {stock}</p>
                             <div className='flex items-center justify-between'>
                                 <button className='btn btn-warning my-4 text-white w-9/12 lg:w-10/12 rounded-none'>Add To Cart</button>
                                 <button className='btn btn-outline w-2/12 lg:w-1/12 rounded-none'><FaHeart /></button>

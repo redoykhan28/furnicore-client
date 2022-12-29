@@ -7,6 +7,8 @@ import DashHome from "../Pages/Dashboard/DashHome/DashHome";
 import AddProduct from "../Pages/Dashboard/DashProducts/AddProduct";
 import AdminProductDetails from "../Pages/Dashboard/DashProducts/AdminProductDetails";
 import AdminProducts from "../Pages/Dashboard/DashProducts/AdminProducts";
+import OrderDetails from "../Pages/Dashboard/Orders/OrderDetails";
+import Orders from "../Pages/Dashboard/Orders/Orders";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import PhoneLogin from "../Pages/Login/PhoneLogin";
@@ -87,7 +89,17 @@ export const router = createBrowserRouter([
                 path: '/adminProductDetails/:id',
                 element: <AdminProductDetails></AdminProductDetails>,
                 loader: ({ params }) => fetch(`http://localhost:5000/productDetails/${params.id}`)
-            }
+            },
+            {
+                path: '/orders',
+                element: <Orders></Orders>
+            },
+
+            {
+                path: '/orderDetails/:id',
+                element: <OrderDetails></OrderDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/orderDetails/${params.id}`)
+            },
         ]
     }
 

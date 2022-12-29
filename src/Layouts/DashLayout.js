@@ -33,7 +33,7 @@ const DashLayout = () => {
                         <li><NavLink className={({ isActive }) => isActive ? 'bg-gradient-to-r from-secondary to-accent  text-white rounded-sm mt-2 rounded-r-full shadow-xl' : 'text-black  text-decoration-none font-bold'} to={'/adminProducts'}><FaShoppingBasket /> My Products</NavLink></li>
 
 
-                        <li><NavLink className={({ isActive }) => isActive ? 'bg-gradient-to-r from-secondary to-accent  text-white rounded-sm mt-2 rounded-r-full shadow-xl' : 'text-black  text-decoration-none font-bold'} to={'/myorder'}><FaCartArrowDown /> Orders</NavLink></li>
+                        <li><NavLink className={({ isActive }) => isActive ? 'bg-gradient-to-r from-secondary to-accent  text-white rounded-sm mt-2 rounded-r-full shadow-xl' : 'text-black  text-decoration-none font-bold'} to={'/orders'}><FaCartArrowDown /> Orders</NavLink></li>
 
                         <li><Link className='text-black font-semibold mt-20' to={'/home'}>Exit from Dashboard <FaSignOutAlt /></Link></li>
                     </ul>

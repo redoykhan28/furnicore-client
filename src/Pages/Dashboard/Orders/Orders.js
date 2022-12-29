@@ -1,25 +1,25 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
-import { FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { authProvider } from '../../../Context/AuthContext';
 import Loader from '../../Loader/Loader';
-import ProductModal from './ProductModal';
+import OrderModal from '../Orders/OrderModal';
 
-const AdminProducts = () => {
+
+const Orders = () => {
 
     //use context
     const { user } = useContext(authProvider);
 
     //deleting product
-    const [deleteProduct, setDeleteProduct] = useState(null)
+    const [deleteOrder, setDeleteOrder] = useState(null)
 
     //use query to fetch categories
-    const { data: adminProducts, isLoading, refetch } = useQuery({
+    const { data: orders, isLoading, refetch } = useQuery({
 
-        queryKey: ['adminProducts'],
-        queryFn: () => fetch(`http://localhost:5000/adminProduct?email=${user.email}`)
+        queryKey: ['orders'],
+        queryFn: () => fetch(`http://localhost:5000/orderlist?email=${user?.email}`)
             .then(res => res.json())
 
     })
@@ -30,12 +30,10 @@ const AdminProducts = () => {
         return <Loader></Loader>
     }
 
-
-
     return (
         <div>
             <h1 className='text-center text-2xl mt-3 font-semibold'>My Products List</h1>
-            <p className='mb-10 text-gray-500'>Total Products: {adminProducts.length}</p>
+            <p className='mb-10 text-gray-500'>Total Products: {orders.length}</p>
 
             <div>
                 <div className="overflow-x-auto mt-8">
@@ -43,7 +41,7 @@ const AdminProducts = () => {
                         <thead>
                             <tr>
                                 <th>Sl</th>
-                                <th>Product Name</th>
+                                <th>Product</th>
                                 <th>Price</th>
                                 <th>Action</th>
                                 <th>Details</th>
@@ -52,7 +50,7 @@ const AdminProducts = () => {
                         <tbody>
 
                             {
-                                adminProducts?.map((product, i) =>
+                                orders?.map((product, i) =>
                                     <tr key={product._id}>
 
                                         <td>{i + 1}</td>
@@ -66,16 +64,16 @@ const AdminProducts = () => {
                                                 {product.product_name}
                                             </div>
                                         </td>
-                                        <td>{product.price}TK</td>
+                                        <td>{product.total}TK</td>
 
                                         <td>
-                                            <label onClick={() => setDeleteProduct(product)} htmlFor="shared-modal" className="btn btn-xs bg-error text-white mx-1 cursor-pointer hover:text-red-700 border-0"><FaTrashAlt /></label>
+                                            <label onClick={() => setDeleteOrder(product)} htmlFor="shared-modal" className="btn btn-xs bg-error text-white mx-1 cursor-pointer hover:text-red-700 border-0">Cancel</label>
                                         </td>
 
                                         <td>
-                                            <Link to={`/adminProductDetails/${product._id}`} className='btn btn-xs btn-secondary mx-1'>Details</Link>
-                                        </td>
 
+                                            <Link to={`/orderDetails/${product._id}`} className='btn btn-xs btn-secondary mx-1'>Details</Link>
+                                        </td>
                                     </tr>
                                 )
                             }
@@ -83,8 +81,8 @@ const AdminProducts = () => {
                     </table>
                 </div>
                 {
-                    deleteProduct &&
-                    <ProductModal refetch={refetch} deleteProduct={deleteProduct} setDeleteProduct={setDeleteProduct} message={'Are you sure you wants to delete?'}></ProductModal>
+                    deleteOrder &&
+                    <OrderModal refetch={refetch} deleteOrder={deleteOrder} setDeleteOrder={setDeleteOrder} message={'Are you sure you wants to delete?'}></OrderModal>
 
                 }
             </div>
@@ -93,4 +91,4 @@ const AdminProducts = () => {
     );
 };
 
-export default AdminProducts;
+export default Orders;
