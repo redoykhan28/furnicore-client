@@ -4,9 +4,13 @@ import Main from "../Layouts/Main";
 import Blogs from "../Pages/Blog/Blogs";
 import Categories from "../Pages/Categories/Categories";
 import DashHome from "../Pages/Dashboard/DashHome/DashHome";
+import AddProduct from "../Pages/Dashboard/DashProducts/AddProduct";
+import AdminProductDetails from "../Pages/Dashboard/DashProducts/AdminProductDetails";
+import AdminProducts from "../Pages/Dashboard/DashProducts/AdminProducts";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import PhoneLogin from "../Pages/Login/PhoneLogin";
+import Checkout from "../Pages/Products/Checkout";
 import ProductDetails from "../Pages/Products/ProductDetails";
 import Products from "../Pages/Products/Products";
 import Register from "../Pages/Register/Register";
@@ -44,6 +48,11 @@ export const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/productDetails/${params.id}`)
             },
             {
+                path: '/checkout/:id',
+                element: <Checkout></Checkout>,
+                loader: ({ params }) => fetch(`http://localhost:5000/productDetails/${params.id}`)
+            },
+            {
                 path: '/login',
                 element: <Login></Login>
             },
@@ -65,6 +74,19 @@ export const router = createBrowserRouter([
             {
                 path: '/dashHome',
                 element: <DashHome></DashHome>
+            },
+            {
+                path: '/adminProducts',
+                element: <AdminProducts></AdminProducts>
+            },
+            {
+                path: '/addProduct',
+                element: <AddProduct></AddProduct>
+            },
+            {
+                path: '/adminProductDetails/:id',
+                element: <AdminProductDetails></AdminProductDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/productDetails/${params.id}`)
             }
         ]
     }

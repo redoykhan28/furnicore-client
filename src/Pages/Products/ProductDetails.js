@@ -9,13 +9,13 @@ const ProductDetails = () => {
     const product = useLoaderData()
     // console.log(product)
     //destructure the obeject
-    const { category_name, product_name, description, image, price, ratings } = product
+    const { category, product_name, description, image, price, ratings, _id } = product
     return (
         <div className='w-11/12 mx-auto'>
             <div className='flex justify-start items-center my-3'>
                 <Link to={'/home'}>Home &gt;</Link>
                 <Link to={'/categories'}>Categories &gt;</Link>
-                <Link to={`/products/${category_name}`}>Product &gt;</Link>
+                <Link to={`/products/${category}`}>Product &gt;</Link>
                 <Link>{product_name}</Link>
             </div>
             <div className='my-10'>
@@ -36,10 +36,10 @@ const ProductDetails = () => {
                             <h4 className="text-xl font-semi-bold">Price: {price}TK</h4>
                             <p className="py-6">{description}</p>
                             <div className='flex items-center justify-between'>
-                                <button className='btn btn-dark my-4 text-white w-9/12 lg:w-10/12 rounded-none'>Add to Cart</button>
+                                <button className='btn btn-warning my-4 text-white w-9/12 lg:w-10/12 rounded-none'>Add To Cart</button>
                                 <button className='btn btn-outline w-2/12 lg:w-1/12 rounded-none'><FaHeart /></button>
                             </div>
-                            <button className='btn btn-outline w-full rounded-none'>Buy Now</button>
+                            <Link to={`/checkout/${_id}`} className='btn btn-outline w-full rounded-none'>Buy Now</Link>
 
                             <div className='mt-8'>
                                 <h1 className='text-gray-500 my-2'>Safe and gureented Checkout</h1>
@@ -61,7 +61,7 @@ const ProductDetails = () => {
                             </div>
 
                             <div className='my-8'>
-                                <p className='my-2 text-gray-500'>Category: {category_name}</p>
+                                <p className='my-2 text-gray-500'>Category: {category}</p>
                                 <p className='my-2 text-gray-500'>Tag: Hot</p>
                                 <div className='flex items-center my-2'>
                                     <p className='text-gray-500'>Share:</p>
