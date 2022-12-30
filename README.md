@@ -15,6 +15,14 @@ Technology Used:
       - Firebase
 4. Database
       - MongoDb
+5. Packages
+      - daisyui
+      - AOS
+      - Date-fns
+      - react-icons
+      - react-hot-toast
+      - react-router
+      - recharts
 
 
 Project Description:
