@@ -22,7 +22,7 @@ const Register = () => {
 
 
     //use react hook form
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, reset, handleSubmit, formState: { errors } } = useForm();
 
     const handlesignup = (data) => {
 
@@ -37,6 +37,7 @@ const Register = () => {
                 handleProfile(data.username)
                 postUser(data.username, data.email, data.phone)
                 navigate(from, { replaced: true })
+                reset()
                 toast.success('Successfully SignUp')
             })
             .catch(err => {
@@ -55,7 +56,7 @@ const Register = () => {
             phone
         }
 
-        fetch('http://localhost:5000/user', {
+        fetch('https://furnicore-server.vercel.app/user', {
             method: "POST",
             headers: {
 
@@ -82,7 +83,7 @@ const Register = () => {
 
 
     return (
-        <div className=' flex justify-center items-center w-96 mt-4 mb-10 mx-auto border border-gray-300'>
+        <div data-aos="fade-up" className=' flex justify-center items-center w-96 mt-4 mb-10 mx-auto border border-gray-300'>
             <div className="card w-96 p-8 bg-base-100 ">
                 <h4 className='text-center text-2xl mt-4 mb-6'>Signup</h4>
                 <form onSubmit={handleSubmit(handlesignup)}>

@@ -40,7 +40,7 @@ const Checkout = () => {
         }
 
         //post order
-        fetch('http://localhost:5000/orders', {
+        fetch('https://furnicore-server.vercel.app/orders', {
 
             method: 'POST',
             headers: {
@@ -58,9 +58,9 @@ const Checkout = () => {
 
 
     return (
-        <div>
+        <div data-aos="fade-up">
             <h1 className='mt-4  text-2xl font-semibold'>checkout</h1>
-            <div className='flex justify-center items-center mt-3 mb-10'>
+            <div className='hidden lg:flex justify-center items-center mt-3 mb-10'>
                 <Link to={'/home'}>Home &gt;</Link>
                 <Link to={'/categories'}>Categories &gt;</Link>
                 <Link to={`/products/${category}`}>Product &gt;</Link>
@@ -70,9 +70,9 @@ const Checkout = () => {
 
             <div className="hero my-4">
                 <form onSubmit={handleSubmit(handlePost)}>
-                    <div className="hero-content flex-col lg:flex-row-reverse gap-32">
-                        <div className='w-2/5'>
-                            <div className="card w-96 bg-base-100 border border-gray-400">
+                    <div className="hero-content flex-col-reverse lg:flex-row-reverse gap-32">
+                        <div className='lg:w-2/5'>
+                            <div className="card w-full lg:w-96 bg-base-100 border border-gray-400">
                                 <div className="card-body text-start">
                                     <h3 className='text-2xl font-semibold mt-3 mb-5'>Product</h3>
                                     <div className='flex items-center justify-between'>
@@ -120,7 +120,8 @@ const Checkout = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='w-3/5'>
+                        <div className='w-full lg:w-3/5'>
+                            <h3 className='font-semibold text-xl'>Fill Your Details</h3>
                             <div className='mt-4 text-start'>
                                 <label htmlFor="username">Username</label>
                                 <input type="text" disabled defaultValue={user?.displayName} className="input   input-bordered w-full rounded-sm mt-1" />

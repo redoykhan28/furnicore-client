@@ -12,7 +12,7 @@ const AdminProductDetails = () => {
     const { product_name, category, description, image, price, ratings, stock } = product
 
     return (
-        <div className='w-11/12 mx-auto'>
+        <div data-aos="fade-up" className='w-11/12 mx-auto'>
             <div className="card lg:card-side p-4 lg:mt-20 bg-base-100 shadow-lg">
                 <figure><img className='h-96' src={image} alt="Album" /></figure>
                 <div className="card-body text-start">

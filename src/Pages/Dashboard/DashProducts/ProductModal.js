@@ -10,7 +10,7 @@ const ProductModal = ({ deleteProduct, setDeleteProduct, message, refetch }) => 
     //handle Delete
     const handleDelete = (product) => {
 
-        fetch(`http://localhost:5000/deleteProduct/${product?._id}`, {
+        fetch(`https://furnicore-server.vercel.app/deleteProduct/${product?._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`

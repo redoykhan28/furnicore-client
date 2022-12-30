@@ -11,7 +11,7 @@ const ProductDetails = () => {
     //destructure the obeject
     const { category, product_name, details, image, price, ratings, _id, stock } = product
     return (
-        <div className='w-11/12 mx-auto'>
+        <div data-aos="fade-up" className='w-11/12 mx-auto'>
             <div className='flex justify-start items-center my-3'>
                 <Link to={'/home'}>Home &gt;</Link>
                 <Link to={'/categories'}>Categories &gt;</Link>

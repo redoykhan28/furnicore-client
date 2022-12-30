@@ -13,7 +13,7 @@ const Customer = () => {
     const { data: customers, isLoading, } = useQuery({
 
         queryKey: ['customers'],
-        queryFn: () => fetch(`http://localhost:5000/orderlist?email=${user?.email}`, {
+        queryFn: () => fetch(`https://furnicore-server.vercel.app/orderlist?email=${user?.email}`, {
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`
             }
@@ -38,7 +38,7 @@ const Customer = () => {
 
 
     return (
-        <div>
+        <div data-aos="fade-up">
             <h1 className='text-center text-2xl mt-3 font-semibold'>Customer List</h1>
             <p className='mb-10 text-gray-500'>Total Customer:{customers?.length}</p>
             <div>

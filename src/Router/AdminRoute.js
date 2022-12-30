@@ -19,6 +19,7 @@ const AdminRoute = ({ children }) => {
     if (adminLoader || loader) {
 
         return <Loader></Loader>
+
     }
 
     if (user && isAdmin) {

@@ -3,7 +3,7 @@ import { FaBackward, FaHome, FaUserCog, FaWallet } from 'react-icons/fa';
 
 const Service = () => {
     return (
-        <div className='w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10'>
+        <div data-aos="zoom-in" className='w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10'>
             <div>
                 <h1><FaHome className='text-3xl w-32 mx-auto rounded-full' /></h1>
                 <h5 className='text-2xl mt-2'>Free Shipping</h5>

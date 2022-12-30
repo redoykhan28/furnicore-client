@@ -1,6 +1,7 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast, Toaster } from 'react-hot-toast';
 import { FaGoogle, FaPhoneAlt } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { authProvider } from '../../Context/AuthContext';
@@ -23,7 +24,7 @@ const Login = () => {
 
 
     //use react hook form
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const handleLogin = (data) => {
 
@@ -36,6 +37,8 @@ const Login = () => {
                 getToken(data.email)
                 navigate(from, { replaced: true })
                 setError(null)
+                reset()
+                toast.success('Login Successfull')
             })
             .catch(err => {
 
@@ -76,7 +79,7 @@ const Login = () => {
 
         }
 
-        fetch('http://localhost:5000/user', {
+        fetch('https://furnicore-server.vercel.app/user', {
             method: "POST",
             headers: {
 
@@ -89,13 +92,14 @@ const Login = () => {
 
                 console.log(data)
 
+
             })
 
     }
 
 
     return (
-        <div className=' flex justify-center items-center w-96 mt-4 mb-10 mx-auto border border-gray-300'>
+        <div data-aos="fade-up" className=' flex justify-center items-center w-96 mt-4 mb-10 mx-auto border border-gray-300'>
             <div className="card w-96 p-8 bg-base-100 ">
                 <h4 className='text-center text-2xl mt-4 mb-6'>Login</h4>
                 <form onSubmit={handleSubmit(handleLogin)}>
@@ -127,6 +131,7 @@ const Login = () => {
                 <Link to={'/phonelogin'} className='btn btn-outline rounded-sm mb-3'>< FaPhoneAlt className='text-red-600 mr-2' /> Login with Phone Number</Link>
                 <button onClick={handleGoogle} className='btn btn-outline rounded-sm'>< FaGoogle className='text-red-600 mr-2' /> Login with Google</button>
             </div>
+            <Toaster />
         </div>
     );
 };

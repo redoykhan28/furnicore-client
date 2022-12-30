@@ -7,7 +7,7 @@ const Products = () => {
     // console.log(products)
 
     return (
-        <div>
+        <div data-aos="zoom-out">
             <h1 className='text-3xl font-semibold mt-2'>Products</h1>
             <p className='font-semibold '>Total Items: {products.length}</p>
             <div className='flex justify-center items-center font-normal mb-10'>

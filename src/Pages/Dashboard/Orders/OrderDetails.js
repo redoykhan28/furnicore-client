@@ -14,7 +14,7 @@ const OrderDetails = () => {
     //confirm order
     const confirmOrder = (order) => {
 
-        fetch(`http://localhost:5000/orderUpdate/${order._id}`, {
+        fetch(`https://furnicore-server.vercel.app/orderUpdate/${order._id}`, {
 
             method: "PUT",
             headers: {
@@ -41,7 +41,7 @@ const OrderDetails = () => {
     }
 
     return (
-        <div>
+        <div data-aos="fade-up">
             <div className="hero bg-base-100 lg:mt-20 border border-gray-300 lg:w-9/12 shadow-md mx-auto">
                 <div className="hero-content flex-col lg:flex-row gap-20">
                     <div className='lg:w-1/2'>

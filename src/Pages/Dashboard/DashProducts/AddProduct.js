@@ -19,13 +19,13 @@ const AddProduct = () => {
     const date = format(new Date(), 'PP')
 
     //using react hook form
-    const { register, handleSubmit, formState: { errors } } = useForm()
+    const { register, handleSubmit, reset, formState: { errors } } = useForm()
 
     //use query to fetch categories
     const { data: addcategory, isLoading } = useQuery({
 
         queryKey: ['addcategory'],
-        queryFn: () => fetch('http://localhost:5000/categories')
+        queryFn: () => fetch('https://furnicore-server.vercel.app/categories')
             .then(res => {
                 if (res.status === 401 || res.status === 403) {
 
@@ -58,7 +58,7 @@ const AddProduct = () => {
             published_date: date
         }
 
-        fetch('http://localhost:5000/addproduct', {
+        fetch('https://furnicore-server.vercel.app/addproduct', {
 
             method: "POST",
             headers: {
@@ -75,6 +75,7 @@ const AddProduct = () => {
                 console.log(data)
                 // navigate('/adminProducts')
                 toast.success('Product successfully added!')
+                reset()
             })
 
 
@@ -88,7 +89,7 @@ const AddProduct = () => {
     }
 
     return (
-        <div>
+        <div data-aos="fade-up">
             <form onSubmit={handleSubmit(handlePost)} className='bg-white w-full lg:w-8/12 mx-auto
              my-10 rounded-xl shadow-xl p-12 gap-10'>
                 <h3 className='text-center text-3xl font-bold mt-6 mb-10'>Add Product</h3>

@@ -19,7 +19,7 @@ const Orders = () => {
     const { data: orders, isLoading, refetch } = useQuery({
 
         queryKey: ['orders'],
-        queryFn: () => fetch(`http://localhost:5000/orderlist?email=${user?.email}`, {
+        queryFn: () => fetch(`https://furnicore-server.vercel.app/orderlist?email=${user?.email}`, {
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`
             }
@@ -43,7 +43,7 @@ const Orders = () => {
     }
 
     return (
-        <div>
+        <div data-aos="fade-up">
             <h1 className='text-center text-2xl mt-3 font-semibold'>My Products List</h1>
             <p className='mb-10 text-gray-500'>Total Products: {orders.length}</p>
 
@@ -55,6 +55,7 @@ const Orders = () => {
                                 <th>Sl</th>
                                 <th>Product</th>
                                 <th>Price</th>
+                                <th>Date</th>
                                 <th>Action</th>
                                 <th>Details</th>
                             </tr>
@@ -77,6 +78,7 @@ const Orders = () => {
                                             </div>
                                         </td>
                                         <td>{product.total}TK</td>
+                                        <td>{product.order_date}TK</td>
 
                                         <td>
                                             <label onClick={() => setDeleteOrder(product)} htmlFor="shared-modal" className="btn btn-xs bg-error text-white mx-1 cursor-pointer hover:text-red-700 border-0">Cancel</label>

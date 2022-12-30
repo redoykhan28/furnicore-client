@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, RecaptchaVerifier, signInWithEmailAndPassword, signInWithPhoneNumber, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import app from '../firebase.init';
 
 
@@ -22,6 +22,22 @@ const AuthContext = ({ children }) => {
     const googleSignin = (provider) => {
         setLoader(true);
         return signInWithPopup(auth, provider)
+    }
+
+    //phone signin
+    const phone = (phone, appVerifier) => {
+        setLoader(true)
+        return signInWithPhoneNumber(auth, phone, appVerifier)
+    }
+
+    //generate recapcha
+    const recapcha = () => {
+        window.recaptchaVerifier = new RecaptchaVerifier('sign-in-button', {
+            'size': 'invisible',
+            'callback': (response) => {
+                // reCAPTCHA solved, allow signInWithPhoneNumber.
+            }
+        }, auth);
     }
 
     //registration
@@ -83,7 +99,10 @@ const AuthContext = ({ children }) => {
         updateUser,
         logout,
         user,
-        loader
+        loader,
+        auth,
+        phone,
+        recapcha
     }
     return (
         <div>

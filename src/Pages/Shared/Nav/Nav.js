@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../Assets/logo-removebg-preview.png'
 import { authProvider } from '../../../Context/AuthContext';
 import useAdmin from '../../../Hooks/AdminHooks';
+import profile from '../../../Assets/user profile/blank-profile-picture-g1cca60b8e_1280.png'
 
 const Nav = () => {
 
@@ -43,7 +44,7 @@ const Nav = () => {
                 <Link to={'/home'} className="btn btn-ghost normal-case text-xl"><img className='w-40' src={logo} alt="Logo" /></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal  px-1">
+                <ul data-aos="zoom-in" className="menu menu-horizontal  px-1">
                     <li><NavLink className={({ isActive }) => isActive ? 'bg-transparent font-bold' : 'font-semibold'} to={'/home'}>Home</NavLink></li>
                     <li><NavLink className={({ isActive }) => isActive ? 'bg-transparent font-bold' : 'font-semibold'} to={'/categories'}>Categories</NavLink></li>
                     <li><NavLink className={({ isActive }) => isActive ? 'bg-transparent font-bold' : 'font-semibold'} to={'/blogs'}>Blogs</NavLink></li>
@@ -57,7 +58,15 @@ const Nav = () => {
             <div className="navbar-end">
                 {
                     user ?
-                        <Link onClick={handleLogout} className="btn btn-outline">Logout</Link>
+                        <div className='flex items-center'>
+                            <div className="avatar">
+                                <div className="w-8 rounded-full">
+                                    <img src={profile} alt="profile" />
+                                </div>
+                            </div>
+                            <Link onClick={handleLogout} className="btn btn-outline ml-4">Logout</Link>
+                        </div>
+
                         :
                         <Link to={'/login'} className="btn bg-black text-white rounded-none lg:w-32 hover:bg-slate-200 hover:text-black hover:bg-transparent">Login</Link>
                 }

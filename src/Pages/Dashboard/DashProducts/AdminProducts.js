@@ -19,7 +19,7 @@ const AdminProducts = () => {
     const { data: adminProducts, isLoading, refetch } = useQuery({
 
         queryKey: ['adminProducts'],
-        queryFn: () => fetch(`http://localhost:5000/adminProduct?email=${user.email}`, {
+        queryFn: () => fetch(`https://furnicore-server.vercel.app/adminProduct?email=${user.email}`, {
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`
             }
@@ -45,7 +45,7 @@ const AdminProducts = () => {
 
 
     return (
-        <div>
+        <div data-aos="fade-up">
             <h1 className='text-center text-2xl mt-3 font-semibold'>Products List</h1>
             <p className='mb-10 text-gray-500'>Total Products: {adminProducts.length}</p>
 

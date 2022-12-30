@@ -20,6 +20,7 @@ import Products from "../Pages/Products/Products";
 import Register from "../Pages/Register/Register";
 import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute"
+import nofoundimg from '../Assets/404-removebg-preview.png'
 
 export const router = createBrowserRouter([
     {
@@ -45,17 +46,17 @@ export const router = createBrowserRouter([
             {
                 path: '/products/:name',
                 element: <Products></Products>,
-                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.name}`)
+                loader: ({ params }) => fetch(`https://furnicore-server.vercel.app/products/${params.name}`)
             },
             {
                 path: '/productDetails/:id',
                 element: <ProductDetails></ProductDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/productDetails/${params.id}`)
+                loader: ({ params }) => fetch(`https://furnicore-server.vercel.app/productDetails/${params.id}`)
             },
             {
                 path: '/checkout/:id',
                 element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/productDetails/${params.id}`)
+                loader: ({ params }) => fetch(`https://furnicore-server.vercel.app/productDetails/${params.id}`)
             },
             {
                 path: '/login',
@@ -74,7 +75,7 @@ export const router = createBrowserRouter([
 
     {
         path: '/',
-        element: <AdminRoute><DashLayout></DashLayout></AdminRoute>,
+        element: <PrivateRoute><DashLayout></DashLayout></PrivateRoute>,
         children: [
             {
                 path: '/dashHome',
@@ -91,7 +92,7 @@ export const router = createBrowserRouter([
             {
                 path: '/adminProductDetails/:id',
                 element: <AdminRoute> <AdminProductDetails></AdminProductDetails></AdminRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/productDetails/${params.id}`, {
+                loader: ({ params }) => fetch(`https://furnicore-server.vercel.app/productDetails/${params.id}`, {
 
                     headers: {
                         authorization: `bearer ${localStorage.getItem('token')}`
@@ -108,7 +109,7 @@ export const router = createBrowserRouter([
             {
                 path: '/orderDetails/:id',
                 element: <AdminRoute><OrderDetails></OrderDetails></AdminRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/orderDetails/${params.id}`, {
+                loader: ({ params }) => fetch(`https://furnicore-server.vercel.app/orderDetails/${params.id}`, {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('token')}`
                     }
@@ -122,13 +123,22 @@ export const router = createBrowserRouter([
             {
                 path: '/customerDetails/:id',
                 element: <AdminRoute><CustomerDetails></CustomerDetails></AdminRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/orderDetails/${params.id}`, {
+                loader: ({ params }) => fetch(`https://furnicore-server.vercel.app/orderDetails/${params.id}`, {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('token')}`
                     }
                 })
             },
         ]
+    },
+    {
+        path: '*', element: <div className=' text-center'>
+            <h1 className='mt-10 text-xl'>
+                This page is not available.</h1>
+            <p className='text-gray-500 text-md'>Sorry! 404. The page you are looking for is not available</p>
+            <img className=' w-25 mx-auto' src={nofoundimg} alt="" />
+        </div>
+
     }
 
 ])

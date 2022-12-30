@@ -10,7 +10,7 @@ const Categories = () => {
     const { data: cat, isLoading } = useQuery({
 
         queryKey: ['cat'],
-        queryFn: () => fetch('http://localhost:5000/categories')
+        queryFn: () => fetch('https://furnicore-server.vercel.app/categories')
             .then(res => res.json())
 
     })
@@ -22,7 +22,7 @@ const Categories = () => {
     }
 
     return (
-        <div className='w-11/12 mx-auto'>
+        <div data-aos="zoom-in" className='w-11/12 mx-auto'>
             <h1 className='text-2xl font-semibold mt-3'>Product Categories</h1>
             <h4 className='font-semibold'>Total Categories: {cat?.length}</h4>
             <div className='flex justify-center items-center font-normal mt-2 mb-10'>

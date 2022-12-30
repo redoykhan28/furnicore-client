@@ -15,7 +15,7 @@ const DashHome = () => {
     const { data: addcategory, isLoading } = useQuery({
 
         queryKey: ['addcategory'],
-        queryFn: () => fetch('http://localhost:5000/categories')
+        queryFn: () => fetch('https://furnicore-server.vercel.app/categories')
             .then(res => {
                 if (res.status === 401 || res.status === 403) {
 
@@ -32,7 +32,7 @@ const DashHome = () => {
     const { data: products } = useQuery({
 
         queryKey: ['products'],
-        queryFn: () => fetch('http://localhost:5000/totalproduct')
+        queryFn: () => fetch('https://furnicore-server.vercel.app/totalproduct')
             .then(res => res.json())
 
     })
@@ -41,7 +41,7 @@ const DashHome = () => {
     const { data: prod } = useQuery({
 
         queryKey: ['prod'],
-        queryFn: () => fetch('http://localhost:5000/allproduct')
+        queryFn: () => fetch('https://furnicore-server.vercel.app/allproduct')
             .then(res => res.json())
 
     })
@@ -50,7 +50,7 @@ const DashHome = () => {
     const { data: users } = useQuery({
 
         queryKey: ['users'],
-        queryFn: () => fetch('http://localhost:5000/users')
+        queryFn: () => fetch('https://furnicore-server.vercel.app/users')
             .then(res => res.json())
 
     })
@@ -59,7 +59,7 @@ const DashHome = () => {
     const { data: adminProducts, refetch } = useQuery({
 
         queryKey: ['adminProducts'],
-        queryFn: () => fetch(`http://localhost:5000/adminProduct?email=${user.email}`, {
+        queryFn: () => fetch(`https://furnicore-server.vercel.app/adminProduct?email=${user.email}`, {
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`
             }
@@ -81,7 +81,7 @@ const DashHome = () => {
     const { data: orders } = useQuery({
 
         queryKey: ['orders'],
-        queryFn: () => fetch(`http://localhost:5000/orderlist?email=${user?.email}`, {
+        queryFn: () => fetch(`https://furnicore-server.vercel.app/orderlist?email=${user?.email}`, {
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`
             }
@@ -108,7 +108,7 @@ const DashHome = () => {
 
     return (
         <div >
-            <div className='flex items-center justify-between flex-col lg:flex-row'>
+            <div data-aos="fade-down" className='flex items-center justify-between flex-col lg:flex-row'>
                 <h1 className='text-xl font-bold text-start p-4 my-4'>Welcome to Dashboard</h1>
                 <div className='flex items-center lg:p-4 lg:my-4  lg:mr-10'>
                     <div className="avatar">
@@ -119,7 +119,7 @@ const DashHome = () => {
                     <h4 className=' ml-2 font-semibold'>Welcome <span className='font-normal text-gray-500'>{user?.displayName}</span></h4>
                 </div>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-8'>
+            <div data-aos="fade-down" className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-8'>
                 <div className="card w-full my-4 lg:my-0 lg:w-96 h-32 bg-gradient-to-r from-secondary to-accent shadow-xl rounded-none">
                     <div className="card-body">
                         <div className='flex justify-evenly items-center mt-5'>
@@ -148,7 +148,7 @@ const DashHome = () => {
                         <div className='flex justify-evenly items-center mt-5'>
                             <div className='flex items-center'>
                                 <FaUserAlt className='text-white' />
-                                <h4 className='text-xl mx-2 text-white font-bold'> Total Products:</h4>
+                                <h4 className='text-xl mx-2 text-white font-bold'> Total Users:</h4>
                             </div>
                             <h4 className='text-xl text-white font-bold'>{users?.length}</h4>
                         </div>
@@ -157,7 +157,7 @@ const DashHome = () => {
 
             </div>
 
-            <div className='grid grid-cols-1 lg:grid-cols-2 my-20 w-full'>
+            <div data-aos="fade-up" className='grid grid-cols-1 lg:grid-cols-2 my-20 w-full'>
                 <div className="card w-full lg:w-11/12 bg-base-100 shadow-md">
                     <div className="card-body">
                         <h2 className="card-title">Products</h2>
@@ -187,7 +187,7 @@ const DashHome = () => {
                         </div>
                     </div>
                 </div>
-                <div className="card w-full lg:w-11/12 bg-base-100 shadow-md">
+                <div data-aos="fade-up" className="card w-full lg:w-11/12 bg-base-100 shadow-md">
                     <div className="card-body">
                         <h2 className="card-title">Recent Products</h2>
                         <div className='text-start'>
@@ -207,7 +207,7 @@ const DashHome = () => {
                     </div>
                 </div>
             </div>
-            <div className="card w-full lg:w-11/12 mt-10 bg-base-100 shadow-md">
+            <div className="card w-full lg:w-11/12 my-10 bg-base-100 shadow-md">
                 <div className="card-body">
                     <h2 className="card-title">Orders</h2>
                     <div className='text-center'>
