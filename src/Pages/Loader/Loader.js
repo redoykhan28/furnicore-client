@@ -2,7 +2,7 @@ import React from 'react';
 
 const Loader = () => {
     return (
-        <div className='p-10 min-h-screen'>
+        <div className='p-10'>
             <progress className="progress w-56"></progress>
         </div>
     );

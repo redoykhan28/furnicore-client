@@ -10,13 +10,13 @@ const AdminRoute = ({ children }) => {
     const location = useLocation()
 
     //use context
-    const { user } = useContext(authProvider);
+    const { user, loader } = useContext(authProvider);
 
     //use customhook to check admin
     const [isAdmin, adminLoader] = useAdmin(user?.email)
     // console.log(isAdmin, loader, adminLoader)
 
-    if (adminLoader) {
+    if (adminLoader || loader) {
 
         return <Loader></Loader>
     }

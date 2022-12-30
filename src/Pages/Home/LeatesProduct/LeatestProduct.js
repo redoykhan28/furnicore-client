@@ -5,7 +5,7 @@ import ProductCard from '../../Products/ProductCard';
 
 const LeatestProduct = () => {
 
-    //use query to fetch categories
+    //use query to fetch products
     const { data: products, isLoading } = useQuery({
 
         queryKey: ['products'],

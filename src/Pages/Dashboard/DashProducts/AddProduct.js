@@ -89,7 +89,7 @@ const AddProduct = () => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit(handlePost)} className='bg-white w-8/12 mx-auto
+            <form onSubmit={handleSubmit(handlePost)} className='bg-white w-full lg:w-8/12 mx-auto
              my-10 rounded-xl shadow-xl p-12 gap-10'>
                 <h3 className='text-center text-3xl font-bold mt-6 mb-10'>Add Product</h3>
                 <div className='grid lg:grid-cols-2'>
